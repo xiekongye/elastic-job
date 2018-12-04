@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.xiekongye.study'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter')
+    compileOnly('org.projectlombok:lombok')
+    // https://mvnrepository.com/artifact/com.dangdang/elastic-job-lite-spring
+    compile group: 'com.dangdang', name: 'elastic-job-lite-spring', version: '2.1.5'
+    compile "org.mybatis:mybatis:3.3.0"
+    compile "org.mybatis:mybatis-spring:1.2.3"
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
